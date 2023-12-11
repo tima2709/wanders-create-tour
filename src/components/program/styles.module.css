@@ -1,0 +1,67 @@
+.section_addDays {
+    background: #F5F5F5;
+}
+
+.container {
+    max-width: 390px;
+    margin: 0 auto;
+}
+
+.desc_day {
+    margin-top: 20px;
+    margin-bottom: 35px;
+}
+
+.desc_day h3 {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 15px;
+}
+.section_addDays {
+    background: #F5F5F5;
+}
+
+.desc_day {
+    margin-top: 20px;
+    margin-bottom: 35px;
+}
+
+.desc_day h3 {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 15px;
+}
+
+.add_image {
+    margin-bottom: 10px;
+}
+
+.add_image h3 {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 15px;
+}
+
+
+.add_image {
+    margin-bottom: 10px;
+}
+
+.add_image h3 {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 15px;
+}
+

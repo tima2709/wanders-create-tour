@@ -1,0 +1,39 @@
+
+
+.location_info {
+    color: #000;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0.6;
+    margin-top: 5px;
+}
+
+p {
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0.8;
+}
+
+.layoutH5 {
+    color: #000 !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    line-height: normal !important;
+}
+
+.lastLine {
+    border-top: 1px solid #000000;
+    padding-top: 40px;
+    opacity: 0.1;
+}
+
+.guideP {
+    margin-bottom: 15px;
+    width: 260px;
+}

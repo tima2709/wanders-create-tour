@@ -1,0 +1,81 @@
+
+
+.btnSpan {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.plusBtn {
+    display: flex;
+    width: 16px;
+    height: 16px;
+    padding: 2px;
+    justify-content: center;
+    align-items: center;
+}
+
+.label_radio {
+    border-radius: 15px;
+    border: 1px solid #EDEDED;
+    padding: 12px 9px;
+    display: flex;
+    gap: 15px;
+    margin: 10px 0;
+    cursor: pointer;
+    max-width: 440px;
+}
+
+.comfort_desc {
+    display: flex;
+    flex-direction: column;
+}
+
+.comfort_desc h4 {
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 5px;
+}
+
+.comfort_desc span {
+    color: #000;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    max-width: 200px;
+}
+
+.inputFile_label {
+    /*width: 310px;*/
+    padding: 13px 17px;
+    border-radius: 10px;
+    background: #D4EFE1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.inputFile_svg_span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.inputNone {
+    display: none;
+}
+
+.upload {
+    color: #0FA958;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
