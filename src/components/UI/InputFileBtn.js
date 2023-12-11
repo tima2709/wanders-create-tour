@@ -23,7 +23,11 @@ const InputFileBtn = ({control, name, setValue}) => {
                     accept={'image/*, .png, .jpg, .gif, .web,'}
                     type='file'
                     multiple={true}
-                    onChange={(e) => setValue(name, e.target.files)}
+                    onChange={(e) => {
+                        const file = e.target.files
+                        field.onChange(file)
+                        setValue(name, file)
+                    }}
                     {...field}
                 />
             )}/>

@@ -7,7 +7,7 @@ import PlaceOfResidence from "../components/accommodations/placeOfResidence";
 const AccommodationPage = ({control, setValue, register}) => {
     return (
         <Box>
-            <ComfortLevelOnTour control={control} setValue={setValue} register={register}/>
+            <ComfortLevelOnTour setValue={setValue} register={register}/>
             <GeneralDescOfAccommodation control={control} setValue={setValue}/>
             <PlaceOfResidence control={control} setValue={setValue}/>
         </Box>

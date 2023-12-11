@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from "../layout/layout";
 import RadioInput from "../UI/radioInput";
 
-const ComfortLevelOnTour = ({control, setValue, register}) => {
+const ComfortLevelOnTour = ({ setValue, register}) => {
 
     return (
         <Layout title="Уровень комфорта в туре">
@@ -11,7 +11,6 @@ const ComfortLevelOnTour = ({control, setValue, register}) => {
             <RadioInput
                 level={"Base"}
                 name={"comfortLevel"}
-                control={control}
                 setValue={setValue}
                 register={register}
                 label={"Базовый"}
@@ -20,7 +19,6 @@ const ComfortLevelOnTour = ({control, setValue, register}) => {
             <RadioInput
                 level={"Simple"}
                 name={"comfortLevel"}
-                control={control}
                 setValue={setValue}
                 register={register}
                 label={"Простой"}
@@ -29,7 +27,6 @@ const ComfortLevelOnTour = ({control, setValue, register}) => {
             <RadioInput
                 level={"Medium"}
                 name={"comfortLevel"}
-                control={control}
                 setValue={setValue}
                 register={register}
                 label={"Средний"}
@@ -38,7 +35,6 @@ const ComfortLevelOnTour = ({control, setValue, register}) => {
             <RadioInput
                 level={"Above_average"}
                 name={"comfortLevel"}
-                control={control}
                 setValue={setValue}
                 register={register}
                 label={"Выше среднего"}
@@ -47,7 +43,6 @@ const ComfortLevelOnTour = ({control, setValue, register}) => {
             <RadioInput
                 level={"High"}
                 name={"comfortLevel"}
-                control={control}
                 setValue={setValue}
                 register={register}
                 label={"Высокий"}

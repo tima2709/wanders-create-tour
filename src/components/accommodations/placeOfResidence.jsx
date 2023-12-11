@@ -14,7 +14,7 @@ const PlaceOfResidence = ({control, setValue}) => {
 
     const {fields, append, remove} = useFieldArray({
         control,
-        name: 'place'
+        name: 'place',
     })
 
 

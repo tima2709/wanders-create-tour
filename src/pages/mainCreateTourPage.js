@@ -4,7 +4,6 @@ import MainDescription from "../components/mainTourCreate/mainDescription";
 import TypeOfRecreation from "../components/mainTourCreate/typeOfRecreation";
 import DifficultyLevel from "../components/mainTourCreate/difficultyLevel";
 import TourGeography from "../components/mainTourCreate/tourGeography";
-import MainImpressions from "../components/mainTourCreate/mainImpressions";
 import AboutTour from "../components/mainTourCreate/aboutTour";
 import UploadCardPhoto from "../components/mainTourCreate/uploadCardPhoto";
 import AddGuide from "../components/mainTourCreate/addGuide";
@@ -16,7 +15,7 @@ const MainCreateTourPage = ({control, setValue, register}) => {
             <TypeOfTour control={control} setValue={setValue}/>
             <MainDescription control={control} setValue={setValue}/>
             <TypeOfRecreation control={control} setValue={setValue}/>
-            <DifficultyLevel control={control} setValue={setValue} register={register}/>
+            <DifficultyLevel setValue={setValue} register={register}/>
             <TourGeography control={control} setValue={setValue}/>
             {/*<MainImpressions/>*/}
             <AboutTour control={control} setValue={setValue}/>
