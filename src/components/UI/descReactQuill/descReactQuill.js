@@ -4,7 +4,7 @@ import 'react-quill/dist/quill.snow.css';
 import './quillStyle.css'
 import {Controller} from "react-hook-form";
 
-const DescReactQuill = ({ name, control, setValue}) => {
+const DescReactQuill = ({ name, control}) => {
 
     const modules = {
         toolbar: [

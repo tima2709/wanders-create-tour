@@ -1,12 +1,11 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import {composeWithDevTools} from "@redux-devtools/extension";
 import thunk from "redux-thunk";
+import {createTourReducer} from "./reducers/tourCreateReducer"
 
 
 const rootReducer = combineReducers({
-
+    newTour: createTourReducer
 })
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
-
-export default store
+export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))

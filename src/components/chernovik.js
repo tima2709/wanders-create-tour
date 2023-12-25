@@ -1,11 +1,13 @@
 import React from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
+import Nested from "./nested";
 
-const YourFormComponent = () => {
-    const { register, handleSubmit, control } = useForm();
-    const { fields, append, remove } = useFieldArray({
+const MyForm = () => {
+    const { register, control, handleSubmit } = useForm();
+
+    const { fields: places, append: appendPlace, remove: removePlace } = useFieldArray({
         control,
-        name: 'dynamicInputs',
+        name: 'place',
     });
 
     const onSubmit = (data) => {
@@ -14,25 +16,36 @@ const YourFormComponent = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            {/* Основные статические поля */}
-            <input {...register('staticInput1')} />
-            <input {...register('staticInput2')} />
-            {/* Динамические поля */}
-            {fields.map((field, index) => (
-                <div key={field.id}>
-                    <input {...register(`dynamicInputs.${index}.name`)} defaultValue={field.name} />
-                    <input {...register(`dynamicInputs.${index}.value`)} defaultValue={field.value} />
-                    <button type="button" onClick={() => remove(index)}>
-                        Удалить
+            {places.map((place, placeIndex) => (
+                <div key={place.id} style={{marginTop: '20px'}}>
+                    <input {...register(`place[${placeIndex}].amount_days`)} defaultValue={place.amount_days} />
+
+                    {/* Поля для вариантов проживания внутри каждого места */}
+                    <Nested control={control} register={register} nestIndex={placeIndex}/>
+
+                    {/* Кнопка для добавления варианта проживания для текущего места */}
+
+
+                    {/* Кнопка для удаления места проживания */}
+                    <button type="button" onClick={() => removePlace(placeIndex)}>
+                        Remove Place
                     </button>
                 </div>
             ))}
-            <button type="button" onClick={() => append({ name: '', value: '' })}>
-                Добавить поле
+
+            {/* Кнопка для добавления места проживания */}
+            <button
+                type="button"
+                onClick={() => {
+                    appendPlace({ amount_days: 0, place_residence: [] });
+                }}
+            >
+                Add Place
             </button>
-            <button type="submit">Отправить форму</button>
+
+            <input type="submit" />
         </form>
     );
 };
 
-export default YourFormComponent;
+export default MyForm;

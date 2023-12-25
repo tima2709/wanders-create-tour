@@ -2,12 +2,13 @@ import React, {useState} from 'react';
 import Layout from "../layout/layout";
 import {Box} from "@mui/material";
 import {Controller} from "react-hook-form";
+import CustomInput from "../UI/customInput";
 
 const CanselReservation = ({control, setValue}) => {
 
     const [checked, setChecked] = useState(false)
 
-  
+
     return (
         <Layout title="Отмена бронирования">
             <Box sx={{display: 'flex', gap: '20px', alignItems: 'flex-start'}}>
@@ -18,17 +19,16 @@ const CanselReservation = ({control, setValue}) => {
                 </Box>
             </Box>
             {
-                !!checked && 
+                !!checked &&
                 <Box>
-                    <Controller
+
+                    <CustomInput
+                        type={'text'}
+                        name={'cancelReservation'}
                         control={control}
-                        render={({field}) => (
-                        <input
-                            type="file"
-                            onChange={(e) => setValue(e.target.value)}
-                            {...field}
-                        />
-                    )} name={'reservation'}/>
+                        label={'Отмена бронирования'}
+                    />
+
                 </Box>
             }
         </Layout>

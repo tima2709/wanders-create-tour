@@ -1,36 +1,24 @@
 import React from 'react';
 import UploadFromIcon from "../icons/uploadFromIcon";
-import styles from './uiStyles.module.css'
-import {Controller} from "react-hook-form";
+import styles from './uiStyles.module.css';
 
 
-const InputFileBtn = ({control, name, setValue}) => {
+const InputFileBtn = ({ name, setValue}) => {
 
-
-
-    return (
+      return (
         <label className={styles.inputFile_label}>
             <div className={styles.inputFile_svg_span}>
                 <UploadFromIcon/>
                 <span className={styles.upload}>Загрузить фото с устройства</span>
             </div>
-            <Controller
+            <input
+                className={styles.inputNone}
                 name={name}
-                control={control}
-                render={({field}) => (
-                <input
-                    className={styles.inputNone}
-                    accept={'image/*, .png, .jpg, .gif, .web,'}
-                    type='file'
-                    multiple={true}
-                    onChange={(e) => {
-                        const file = e.target.files
-                        field.onChange(file)
-                        setValue(name, file)
-                    }}
-                    {...field}
-                />
-            )}/>
+                accept={'image/*, .png, .jpg, .gif, .web,'}
+                type='file'
+                multiple={true}
+                onChange={(e) => setValue(name, e.target.files)}
+            />
         </label>
     );
 };

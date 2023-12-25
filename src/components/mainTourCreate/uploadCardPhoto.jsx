@@ -18,7 +18,7 @@ const UploadCardPhoto = ({control, setValue}) => {
                 разрешения, за это можно получить крупный штраф!</p>
             <Box sx={{marginBottom: '15px'}}>
                 <InputFileBtn
-                    name={'mainImages'}
+                    name={'tourImages'}
                     control={control}
                     setValue={setValue}
                 />

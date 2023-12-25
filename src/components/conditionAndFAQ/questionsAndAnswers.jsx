@@ -26,14 +26,14 @@ const QuestionsAndAnswers = ({control, setValue}) => {
                                 type="text"
                                 control={control}
                                 label={'Вопрос'}
-                                name={`questions.${index}.question`}
+                                name={`questions.${index}.questionTour`}
                             />
                         </Box>
                         <Box>
                             <h5>Ответ</h5>
                             <DescReactQuill
                                 control={control}
-                                name={`questions.${index}.answer`}
+                                name={`questions.${index}.answerTour`}
                             />
                         </Box>
                         <DeleteBtn onClick={() => remove(index)}/>
@@ -42,7 +42,7 @@ const QuestionsAndAnswers = ({control, setValue}) => {
             }
             <CustomAddButton
                 type={'button'}
-                onClick={() => append({question: '', answer: '',})}
+                onClick={() => append({questionTour: '', answerTour: '',})}
                 label={'Добавить вопрос'}
             />
         </Layout>

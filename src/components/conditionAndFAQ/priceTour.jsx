@@ -4,8 +4,11 @@ import {Box} from "@mui/material";
 import CustomSelect from "../UI/customSelect";
 import CustomInput from "../UI/customInput";
 import CustomAddButton from "../UI/customAddButton";
+import {useFieldArray} from "react-hook-form";
+import Included from "./includedNotIncluded/included";
+import NotIncluded from "./includedNotIncluded/notIncluded";
 
-const PriceTour = ({control, setValue}) => {
+const PriceTour = ({control, setValue, defaultValues}) => {
 
     const insurance = [
         {
@@ -25,18 +28,10 @@ const PriceTour = ({control, setValue}) => {
     return (
         <Layout title="Стоимость">
             <Box>
-                <h3>Включено в стоимость</h3>
-                <CustomInput control={control} type={'text'} label={'Добавить пункт'} name={'price1'}/>
-                <CustomInput control={control} type={'text'} label={'Добавить пункт'} name={'price2'}/>
-                <CustomInput control={control} type={'text'} label={'Добавить пункт'} name={'price3'}/>
-                <CustomAddButton label="Добавить пункт"/>
+                <Included control={control} defaultValues={defaultValues}/>
             </Box>
             <Box>
-                <h3>Оплачивается отдельно</h3>
-                <CustomInput control={control} type={'text'} label={'Добавить пункт'} name={'price4'}/>
-                <CustomInput control={control} type={'text'} label={'Добавить пункт'} name={'price5'}/>
-                <CustomInput control={control} type={'text'} label={'Добавить пункт'} name={'price6'}/>
-                <CustomAddButton label="Добавить пункт"/>
+                <NotIncluded control={control} defaultValues={defaultValues}/>
             </Box>
             <Box>
                 <h3>Условия страхования</h3>

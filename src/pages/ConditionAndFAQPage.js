@@ -5,10 +5,10 @@ import CanselReservation from "../components/conditionAndFAQ/canselReservation";
 import ListOfNecessaryThings from "../components/conditionAndFAQ/listOfNecessaryThings";
 import QuestionsAndAnswers from "../components/conditionAndFAQ/questionsAndAnswers";
 
-const ConditionAndFaqPage = ({control, setValue}) => {
+const ConditionAndFaqPage = ({control, setValue, defaultValues}) => {
     return (
         <Box>
-            <PriceTour control={control} setValue={setValue}/>
+            <PriceTour control={control} setValue={setValue} defaultValues={defaultValues}/>
             <CanselReservation control={control} setValue={setValue}/>
             <ListOfNecessaryThings control={control} setValue={setValue}/>
             <QuestionsAndAnswers control={control} setValue={setValue}/>

@@ -7,7 +7,7 @@ import CustomInput from "../UI/customInput";
 const AboutTour = ({control, setValue}) => {
 
 
-    const language = [
+    const languages = [
         {value: 'Russian', label: 'Русский'},
         {value: 'English', label: 'Английский'},
         {value: 'Kyrgyz', label: 'Кыргызский'}
@@ -28,7 +28,7 @@ const AboutTour = ({control, setValue}) => {
                 <Box sx={col6}>
                     <Box sx={boxRight}>
                         <CustomSelect
-                            options={language}
+                            options={languages}
                             label={"Языки"}
                             name={'language'}
                             control={control}
@@ -39,37 +39,37 @@ const AboutTour = ({control, setValue}) => {
                 <Box sx={col6}>
                     <Box sx={boxLeft}>
                         <CustomInput
-                            typeInput="number"
+                            type="number"
                             label={'Количество дней'}
                             control={control}
-                            name={'totalDays'}
+                            name={'amountOfDays'}
                         />
                     </Box>
                 </Box>
                 <Box sx={col6}>
                     <Box sx={boxRight}>
                         <CustomInput
-                            typeInput="number"
+                            type="number"
                             label={'Мин. человек в группе'}
                             control={control}
-                            name={'minPerson'}
+                            name={'minPeople'}
                         />
                     </Box>
                 </Box>
                 <Box sx={col6}>
                     <Box sx={boxLeft}>
                         <CustomInput
-                            typeInput="number"
+                            type="number"
                             label={'Макс. человек в группе'}
                             control={control}
-                            name={'maxPerson'}
+                            name={'maxPeople'}
                         />
                     </Box>
                 </Box>
                 <Box sx={col6}>
                     <Box sx={boxRight}>
                         <CustomInput
-                            typeInput="number"
+                            type="number"
                             label={'Мин. возраст, лет'}
                             control={control}
                             name={'min'}
@@ -79,7 +79,7 @@ const AboutTour = ({control, setValue}) => {
                 <Box sx={col6}>
                    <Box sx={boxLeft}>
                        <CustomInput
-                           typeInput="number"
+                           type="number"
                            label={"Макс. возраст, лет"}
                            control={control}
                            name={'max'}

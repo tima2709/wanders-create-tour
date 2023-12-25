@@ -43,23 +43,23 @@ p {
     margin-bottom: 45px;
 }
 
-ol{
+.tag_ol {
     counter-reset: myCounter;
     padding: 0;
 }
 
-li{
+.tag_li {
     list-style: none;
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-li h1 {
+.tag_li h1 {
     margin-bottom: 0;
 }
 
-li:before {
+.tag_li:before {
     counter-increment: myCounter;
     content:counter(myCounter);
     color: #000000;

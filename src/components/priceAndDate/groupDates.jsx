@@ -2,39 +2,58 @@ import React from 'react';
 import Layout from "../layout/layout";
 import {Box, Typography} from "@mui/material";
 import CustomInput from "../UI/customInput";
+import {useFieldArray} from "react-hook-form";
+import Datepicker from "../UI/DatePicker/Datepicker";
 
-const GroupDates = ({control}) => {
+const GroupDates = ({control, defaultValues, setValue}) => {
+
+    const {fields, append, remove} = useFieldArray({
+        control,
+        name: 'concrete_tour',
+        defaultValues
+    })
+
     return (
         <Layout title="Групповые даты">
-            <Box sx={{display: 'flex', gap: '20px'}}>
+            <Box >
                 <Box>
                     <Typography variant={'h6'}>Даты</Typography>
-                    <CustomInput
-                        label="Дата начала"
-                        control={control}
-                        name={'startDate'}
-                        type={'text'}
-                    />
-                    <CustomInput
-                        label="Дата завершения"
-                        control={control}
-                        name={'endDate'}
-                        type={'text'}
-                    />
+                    {
+                        fields.map((field, index) => (
+                            <Box key={field.id} sx={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
+                                <Box sx={datePickerStyle}>
+                                    <Datepicker
+                                        name={'concrete_tour.0.concrete_tour_date.0.start_date'}
+                                        control={control}
+                                        label="Дата начала"
+                                        setValue={setValue}
+                                    />
+                                </Box>
+                                <Box sx={datePickerStyle}>
+                                    <Datepicker
+                                        name={'concrete_tour.0.concrete_tour_date.0.end_date'}
+                                        control={control}
+                                        label="Дата завершения"
+                                        setValue={setValue}
+                                    />
+                                </Box>
+                            </Box>
+                        ))
+                    }
+                </Box>
+                <Box>
                     <CustomInput
                         label="Стоимость тура за одного туриста"
                         type="number"
                         control={control}
-                        name={'price'}
+                        name={'price_kgz'}
                     />
-                </Box>
-                <Box>
                     <Typography variant={'h6'}>Предоплата</Typography>
                     <CustomInput
                         label="За сколько дней до начала тура внести предплату"
                         type="number"
                         control={control}
-                        name={'amountOfDays'}
+                        name={'prepaymentPeriod'}
                     />
                     <CustomInput
                         label="Размер предоплаты"
@@ -57,3 +76,13 @@ const GroupDates = ({control}) => {
 };
 
 export default GroupDates;
+
+const datePickerStyle = {
+    width: '339px',
+    display: 'flex',
+    alignItems: 'center',
+    padding: '13px 17px',
+    borderRadius: '10px',
+    border: '1px solid #282828',
+    opacity: '0.6',
+}

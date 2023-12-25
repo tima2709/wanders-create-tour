@@ -7,23 +7,17 @@ import CustomAddButton from "../UI/customAddButton";
 import DescReactQuill from "../UI/descReactQuill/descReactQuill";
 import CustomSelect from "../UI/customSelect";
 import { useFieldArray} from "react-hook-form";
-import {Button} from "@mui/material";
+import {Box, Button} from "@mui/material";
 import QtyNightsSelector from "../UI/qtyNights/qtyNights";
+import VariantPlace from "./variantPlace";
 
-const PlaceOfResidence = ({control, setValue}) => {
+const PlaceOfResidence = ({control, setValue, defaultValues}) => {
 
-    const {fields, append, remove} = useFieldArray({
+    const {fields: placeFields, append: placeAppend, remove: placeRemove} = useFieldArray({
         control,
         name: 'place',
+        defaultValues,
     })
-
-
-    const accommodationComfort = [
-        {value: 'Tent', label: 'Tent'},
-        {value: 'Hotel', label: 'Hotel'},
-        {value: 'Hostel', label: 'Hostel'},
-        {value: 'Cottage', label: 'Cottage'},
-    ];
 
 
     // const handlePlusQtyNights = (index) => {
@@ -41,51 +35,27 @@ const PlaceOfResidence = ({control, setValue}) => {
     return (
         <Layout>
             <div>
-                <ol>
+                <ol className={styles.tag_ol}>
                     {
-                        fields.map((field, index) => (
-                            <div key={index}>
-                                <li><h1>Место проживания</h1></li>
+                        placeFields.map((field, placeIndex) => (
+                            <div key={field.id}>
+                                <li className={styles.tag_li}><h1>Место проживания</h1></li>
                                 <QtyNightsSelector
                                     control={control}
-                                    index={index}
-                                    place={fields}
+                                    index={placeIndex}
+                                    place={placeFields}
                                     setValue={setValue}
                                 />
                                 <h3>Варианты проживания на выбор в этот период тура</h3>
-                                <div className={styles.select_variants}>
-                                    <CustomSelect
-                                        options={accommodationComfort}
-                                        label={'Проживание'}
-                                        control={control}
-                                        name={`place.${index}.select`}
-                                        setValue={setValue}
-                                    />
-                                </div>
-                                <div className={styles.acc_title}>
-                                    <CustomInput
-                                        type="text"
-                                        name={`place.${index}.title`}
-                                        label={'Заголовок'}
-                                        control={control}
-                                    />
-                                </div>
-                                <div className={styles.acc_desc}>
-                                    <DescReactQuill
-                                        name={`place.${index}.description`}
-                                        control={control}
-                                        setValue={setValue}
-                                    />
-                                </div>
-                                <div className={styles.upload_pic}>
-                                    <h3>Добавить фотографии</h3>
-                                    <InputFileBtn
-                                    name={`place.${index}.file`}
-                                    control={control}
+
+                                <VariantPlace
                                     setValue={setValue}
-                                    />
-                                </div>
-                                <Button type="button" onClick={() => remove(index)}>
+                                    control={control}
+                                    defaultValues={defaultValues}
+                                    placeIndex={placeIndex}
+                                />
+
+                                <Button type="button" onClick={() => placeRemove(placeIndex)}>
                                     Удалить
                                 </Button>
                             </div>
@@ -93,7 +63,7 @@ const PlaceOfResidence = ({control, setValue}) => {
                     }
                 </ol>
                 <CustomAddButton
-                    onClick={() => append({title: '', description: '', file: null, select: '', qtyNight: 1})}
+                    onClick={() => placeAppend({qtyNight: 1, place_residence: []})}
                     label={'Добавить проживание'}
                 />
 
@@ -104,11 +74,3 @@ const PlaceOfResidence = ({control, setValue}) => {
 
 export default PlaceOfResidence;
 
-// export const hotels = {
-//     hotelTitle: '',
-//     hotelDescription: '',
-//     hotelImages: [],
-//     selectedImg: [],
-//     qtyNight: 1,
-//     type: '',
-// };

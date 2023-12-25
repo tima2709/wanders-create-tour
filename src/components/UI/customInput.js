@@ -15,6 +15,7 @@ const CustomInput = ({label, control, name, type}) => {
                             label={label}
                             type={type}
                             variant="outlined"
+                            value={field.value}
                             size="medium"
                             sx={{width: '100%'}}
                             InputProps={{
